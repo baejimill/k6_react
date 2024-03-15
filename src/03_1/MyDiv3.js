@@ -1,4 +1,4 @@
-export default function MyDiv3(d1,d2,d3) {
+export default function MyDiv3({d1,d2,d3}) {
    
   return (
     <div className='w-4/5 h-2/3 

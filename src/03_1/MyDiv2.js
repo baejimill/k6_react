@@ -1,6 +1,6 @@
 import MyDiv3 from "./MyDiv3"
-export default function MyDiv2(d1,d2) {
-  console.log(probs)
+export default function MyDiv2({d1,d2,d3}) {
+  // console.log(probs)
   return (
     <div className='w-4/5 h-2/3 
                     flex flex-col justify-center items-center
@@ -13,7 +13,7 @@ export default function MyDiv2(d1,d2) {
             ">
   {`${d1} > ${d2}`}
 </p> 
-<MyDiv3  d1={probs.d1} d2={probs.d2} d3={probs.d3}  />
+<MyDiv3  d1={d1} d2={d2} d3={d3}  />
 </div>
   )
 }

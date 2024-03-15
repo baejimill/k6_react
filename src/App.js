@@ -4,7 +4,7 @@
 import './App.css';
 import HelloCss from './02/HelloCss';
 import { FaHome } from "react-icons/fa";
-import MyDiv1 from './03/MyDiv1';
+import MyDiv1 from './03_1/MyDiv1';
 
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
