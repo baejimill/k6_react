@@ -5,8 +5,9 @@ import './App.css';
 import HelloCss from './02/HelloCss';
 import { FaHome } from "react-icons/fa";
 // import MyDiv1 from './03_1/MyDiv1';
-import MyList from './04/MyList';
-import MyListMain from './04/MyListMain';
+// import MyList from './04/MyList';
+// import MyListMain from './04/MyListMain';
+import BoxOfficeTv from './05/BoxOfficeTv';
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
   // JSX 문법 사용
@@ -34,7 +35,8 @@ function App() {
         {/* <HelloCss /> */}
         {/* <MyDiv1 /> */}
         {/* <MyList /> */}
-        <MyListMain />
+        {/* <MyListMain />/ */}
+        <BoxOfficeTv />
       </main>
       <footer className='flex justify-center items-center
                          h-20 bg-slate-500
