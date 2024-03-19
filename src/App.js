@@ -8,6 +8,8 @@ import { FaHome } from "react-icons/fa";
 // import MyList from './04/MyList';
 // import MyListMain from './04/MyListMain';
 import BoxOfficeTv from './05/BoxOfficeTv';
+import BoxOfficeTbody from './05/BoxOfficeTbody';
+import Lotto from './06/Lotto';
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
   // JSX 문법 사용
@@ -36,7 +38,8 @@ function App() {
         {/* <MyDiv1 /> */}
         {/* <MyList /> */}
         {/* <MyListMain />/ */}
-        <BoxOfficeTv />
+        {/* <BoxOfficeTv /> */}
+        <Lotto />
       </main>
       <footer className='flex justify-center items-center
                          h-20 bg-slate-500
