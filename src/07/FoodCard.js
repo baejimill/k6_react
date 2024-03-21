@@ -2,6 +2,7 @@ import bank from "./img/bank.png"
 import market from "./img/market.png"
 import busan from "./img/busan.png"
 import { useState } from "react"
+
 export default function FoodCard({fobj}) {
     const [isClick, setIsClick] = useState(false);
 

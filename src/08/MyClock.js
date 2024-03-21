@@ -1,10 +1,11 @@
 import MyClockImage from "./MyClockImage";
 import MyClockTime from "./MyClockTime";
-import "./MyClock.css";
+
 
 function MyClock(){
     return( 
-       <div className="mainArea">
+       <div className="w-full h-full    
+                        flex flex-col">
         <MyClockImage />
         <MyClockTime />
        </div>

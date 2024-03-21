@@ -12,6 +12,7 @@ import { FaHome } from "react-icons/fa";
 // import Lotto from './06/Lotto';
 import FoodCard from './07/FoodCard';
 import FoodMain from './07/FoodMain';
+import MyClock from './08/MyClock';
 
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
@@ -44,7 +45,8 @@ function App() {
         {/* <BoxOfficeTv /> */}
         {/* <Lotto /> */}
         {/* <FoodCard/> */}
-        <FoodMain />
+        {/* <FoodMain /> */}
+        <MyClock />
       
       </main>
       <footer className='flex justify-center items-center
