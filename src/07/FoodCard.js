@@ -18,7 +18,8 @@ export default function FoodCard({fobj}) {
         <div className="w-1/6 max-w-xl flex justify-center items-center">
            <img src={fimg} alt="{bank}" className="w-full inline-flex"/>
         </div>
-        <div className="w-5/6 p-3 mx-3">
+        <div className="w-5/6 p-3 mx-3
+                        flex flex-col justify-center ">
             <h1 className="text-2xl font-bold text-slate-700">
                 {fobj["사업장명"]}
                 </h1>
@@ -28,7 +29,7 @@ export default function FoodCard({fobj}) {
             <h3 className="text-sm font-bold text-slate-400">
             {fobj["사업장 소재지"]}
             </h3>
-            <div className="w-full h-10 text-sm justify-center items-center
+            <div className="w-full h-8 text-sm justify-center items-center
                              bg-slate-600 text-white p-1 mt-4">
            {isClick && `Tel : ${fobj["연락처(대표번호)"]} , Fax : ${fobj["팩스번호"]}`}
             </div>
