@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react" //useState는 랜더링을 다시 변한다 useEffect는 함수 함수를 실행,호출
 import TrafficNav from "./TrafficNav";
 export default function TrafficMain() {
     const [tdata, setTdata] = useState(); //전체 fetch 데이터(17개배열)
@@ -103,7 +103,7 @@ export default function TrafficMain() {
                    setSel  ={setSelC2} />
             
   }
-    {<div className="w-11/12 grid grid-cols-2
+    {<div className="w-11/12  grid grid-cols-2
                             sm:grid-cols-3 
                              md:grid-cols-5
                              gap-4
