@@ -1,7 +1,7 @@
 export default function TailButton({caption, color, handleClick}) {
-    console.log(color)
+    // console.log(color)
     const colorObj = {
-      'blue' : 'bg-blue-800' ,
+      'blue' : 'bg-blue-700' ,
       'red'  : 'bg-red-700' ,
       'orange' : 'bg-orange-7800'
     }
