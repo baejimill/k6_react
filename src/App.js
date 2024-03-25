@@ -10,10 +10,12 @@ import { FaHome } from "react-icons/fa";
 // import BoxOfficeTv from './05/BoxOfficeTv';
 // import BoxOfficeTbody from './05/BoxOfficeTbody';
 // import Lotto from './06/Lotto';
-import FoodCard from './07/FoodCard';
-import FoodMain from './07/FoodMain';
-import MyClock from './08/MyClock';
-import TrafficMain from './09/TrafficMain';
+// import FoodCard from './07/FoodCard';
+// import FoodMain from './07/FoodMain';
+// import MyClock from './08/MyClock';
+// import TrafficMain from './09/TrafficMain';
+import RefVal from './10/RefVal';
+import RefInput from './10/RefInput';
 
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
@@ -48,7 +50,8 @@ function App() {
         {/* <FoodCard/> */}
         {/* <FoodMain /> */}
         {/* <MyClock /> */}
-        <TrafficMain />
+        {/* <TrafficMain /> */}
+        <RefInput />
       
       </main>
       <footer className='flex justify-center items-center

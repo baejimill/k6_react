@@ -3,7 +3,7 @@ export default function TailButton({caption, color, handleClick}) {
     const colorObj = {
       'blue' : 'bg-blue-700' ,
       'red'  : 'bg-red-700' ,
-      'orange' : 'bg-orange-7800'
+      'orange' : 'bg-orange-700'
     }
     const hoverObj = {
       'blue' : 'hover:bg-blue-900' ,

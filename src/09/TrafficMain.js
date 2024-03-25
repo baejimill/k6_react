@@ -30,6 +30,7 @@ export default function TrafficMain() {
 
     }, []);
 
+
     useEffect(()=>{
         if(!tdata) return;
 
@@ -88,6 +89,7 @@ export default function TrafficMain() {
     },[detail]);
 
   return (
+    
     <div className="w-full h-full mt-5
                      flex flex-col
                     justify-start items-center">
@@ -97,6 +99,7 @@ export default function TrafficMain() {
                    setSel  ={setSelC1} />
             
   }
+  {/* <img src="../img/busan.png"/> */}
   {c2 && <TrafficNav title = "중분류"
                  category = {c2}
                   sel = {selC2}
