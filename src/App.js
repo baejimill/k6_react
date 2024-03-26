@@ -16,6 +16,7 @@ import { FaHome } from "react-icons/fa";
 // import TrafficMain from './09/TrafficMain';
 import RefVal from './10/RefVal';
 import RefInput from './10/RefInput';
+import BoxOffice from './05/BoxOffice'
 
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
@@ -51,7 +52,8 @@ function App() {
         {/* <FoodMain /> */}
         {/* <MyClock /> */}
         {/* <TrafficMain /> */}
-        <RefInput />
+        {/* <RefInput /> */}
+        <BoxOffice/>
       
       </main>
       <footer className='flex justify-center items-center

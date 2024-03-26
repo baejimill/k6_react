@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function TailInput({type,ref,ph}) {
+export default function TailInput({type,inputRef,ph,handleChange}) {
   return (
       <input type={type} 
-            ref={ref}
-            id="first_name" 
+            ref={inputRef}
+            onChange={handleChange} 
             className="bg-gray-50 border
                          border-gray-300    
                           text-gray-900 

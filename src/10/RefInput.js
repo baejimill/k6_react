@@ -39,19 +39,9 @@ export default function RefInput() {
         <div className="w-full flex
                         justify-center items-center">
         <div className="w-1/2 flex justify-center items-center">
-            <input type="text"
-                    ref={inputRef}
-                ph="값입력" 
-                className="bg-gray-50 border
-                             border-gray-300    
-                              text-gray-900 
-                              text-sm rounded-lg
-                               focus:ring-blue-500 
-                               focus:border-blue-500 block w-full p-2.5"
-                                />
-      {/* <TailInput type="password"
-                    ref={inputRef}
-                ph="값입력" /> */}
+                    <TailInput type="text"
+                                    inputRef={inputRef}
+                                ph="값입력" />
     </div> 
     <div className="w-1/2 flex justify-center items-center">
     <TailButton caption="등록"
