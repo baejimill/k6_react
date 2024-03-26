@@ -54,7 +54,7 @@ export default function TrafficMain() {
 
     },[selC1])
 
-    useEffect(()=>{ //디테일에 넣어라..?
+    useEffect(()=>{ 
         if(!tdata) return;
         let tm = tdata.filter(item=>item.사고유형_대분류 === selC1&&
                                     item.사고유형_중분류 === selC2)
