@@ -19,6 +19,7 @@ import RefInput from './10/RefInput';
 import BoxOffice from './05/BoxOffice'
 import GalleryCard from './11/GalleryCard';
 import GalleryMain from './11/GalleryMain';
+import Festival from './12/Festival';
 
 function App() {
   return (//자바스크립트에서 리턴은 하나만 가능
@@ -57,7 +58,8 @@ function App() {
         {/* <RefInput /> */}
         {/* <BoxOffice/> */}
         {/* <GalleryCard /> */}
-        <GalleryMain/>
+        {/* <GalleryMain/> */}
+        <Festival />
       
       </main>
       <footer className='flex justify-center items-center
