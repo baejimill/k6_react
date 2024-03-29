@@ -93,8 +93,8 @@ useEffect(()=>{
     {opTags}
   </select>
 </form>
-<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 
-                    gap-2 ">
+<div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-col-3 
+                    gap-4 p-2">
         {cardTags}
     </div>
     </div>
