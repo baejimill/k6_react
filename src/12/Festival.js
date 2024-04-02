@@ -68,7 +68,6 @@ useEffect(()=>{
                 </option> 
                 );
        setOpTags(tm);
-        
         // console.log(guname)
     },[guname])
     

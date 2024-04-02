@@ -23,6 +23,8 @@ import BoxOffice from './05/BoxOffice'
 import Festival from './12/Festival';
 import Frcst from './14/Frcst';
 // import RouteMain from './13/RouteMain';
+import UltraSrtFcst from './14/UltraSrtFcst';
+import VilageFcst from './14/VilageFcst';
 
 
 function App() {
@@ -43,23 +45,23 @@ function App() {
                         '>
       <div>리액트실습</div>
       <div className='flex justify-end items-center'>
-        <div className='mx-5 p-2 rounded-md
+        <div className='mx-3 p-2 rounded-md
                        hover:bg-blue-900 hover:text-white'>
           <Link to='/lotto'>로또</Link>
         </div>
-        <div className='mx-5 p-2 rounded-md
+        <div className='mx-3 p-2 rounded-md
                        hover:bg-blue-900 hover:text-white'>
           <Link to='/box'>박스오피스</Link>
         </div>
-        <div className='mx-5 p-2 rounded-md
+        <div className='mx-3 p-2 rounded-md
                        hover:bg-blue-900 hover:text-white'>
           <Link to='/food'>푸드마켓</Link>
         </div>
-        <div className='mx-5 p-2 rounded-md
+        <div className='mx-3 p-2 rounded-md
                        hover:bg-blue-900 hover:text-white'>
           <Link to='/Festival'>축제</Link>
         </div>
-        <div className='mx-5 p-2 rounded-md
+        <div className='mx-3 p-3 rounded-md
                        hover:bg-blue-900 hover:text-white'>
           <Link to='/frcst'>예보</Link>
         </div>
@@ -79,6 +81,8 @@ function App() {
       <Route path='/food' element={<FoodMain/>}/>
       <Route path='/Festival' element={<Festival/>}/>
       <Route path='/frcst' element={<Frcst/>}/>
+      <Route path='/ultra/:dt/:area/:x/:y' element={<UltraSrtFcst/>}/>
+      <Route path='/vilage/:dt/:area/:x/:y' element={<VilageFcst/>}/>
       </Routes>
       </main>
       <footer className='flex justify-center items-center
