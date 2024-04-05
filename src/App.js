@@ -24,7 +24,9 @@ import Festival from './12/Festival';
 import Frcst from './14/Frcst';
 // import RouteMain from './13/RouteMain';
 import UltraSrtFcst from './14/UltraSrtFcst';
-import VilageFcst from './14/VilageFcst';
+import VillageFcst from './14/VillageFcst';
+import FrcstList from './14/FrcstList';
+import Recoil1 from './15/Recoil1';
 
 
 function App() {
@@ -65,6 +67,10 @@ function App() {
                        hover:bg-blue-900 hover:text-white'>
           <Link to='/frcst'>예보</Link>
         </div>
+        <div className='mx-3 p-3 rounded-md
+                       hover:bg-blue-900 hover:text-white'>
+          <Link to='/r1'>Recoil</Link>
+        </div>
 
           
       <div>
@@ -82,7 +88,9 @@ function App() {
       <Route path='/Festival' element={<Festival/>}/>
       <Route path='/frcst' element={<Frcst/>}/>
       <Route path='/ultra/:dt/:area/:x/:y' element={<UltraSrtFcst/>}/>
-      <Route path='/vilage/:dt/:area/:x/:y' element={<VilageFcst/>}/>
+      <Route path='/village/:dt/:area/:x/:y' element={<VillageFcst/>}/>
+      <Route path='/frcstlist' element={<FrcstList/>}/>
+      <Route path='/r1' element={<Recoil1/>}/>
       </Routes>
       </main>
       <footer className='flex justify-center items-center

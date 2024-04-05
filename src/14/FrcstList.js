@@ -1,20 +1,22 @@
-import { useParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
 import TailSelect from "../UI/TailSelect"
 import getcode from "./getcode.json"
 
-export default function UltraSrtFcst() {
-    const dt = useParams().dt
-    const area = useParams().area
-    const x = useParams().x
-    const y = useParams().y
-    const gubun = '초단기예보';
+export default function FrcstList() {
+    const [queryParms] = useSearchParams();
+    const dt = queryParms.get('dt')
+    const area = queryParms.get('area')
+    const x = queryParms.get('x')
+    const y = queryParms.get('y')
+    const gubun = queryParms.get('gubun')
+
     //slecte 박스 옵션
-    const ops = getcode.filter(item=>item["예보구분"]===gubun)
-                        .map(item =>`${item["항목명"]} (${item["항목값"]})`);
+    const ops = getcode.filter(item => item["예보구분"] === gubun)
+        .map(item => `${item["항목명"]} (${item["항목값"]})`);
 
     const itemRef = useRef()
-   
+
     //fetch data state 변수로 저장
     const [tdata, setTdata] = useState([]);
 
@@ -26,60 +28,67 @@ export default function UltraSrtFcst() {
     const [selitemName, setSelItemName] = useState()
 
     //select 박스 항목 선택
-    const handleItem =()=>{
-        if(itemRef.current.value === ''){
-        alert('항목을 선택하세요.')
-        itemRef.current.focus()
-        setTrtags([])
-        return;
+    const handleItem = () => {
+        if (itemRef.current.value === '') {
+            alert('항목을 선택하세요.')
+            itemRef.current.focus()
+            setTrtags([])
+            return;
         }
         console.log(itemRef.current.value)
         setSelItemName(itemRef.current.value.split(' (')[0]);
-        setSelItem(itemRef.current.value.split(' (')[1].replace(')',''));
-      }
-   
-        //fetch 함수
-       const getData = async (url) => {
+        setSelItem(itemRef.current.value.split(' (')[1].replace(')', ''));
+    }
+
+    //fetch 함수
+    const getData = async (url) => {
         const resp = await fetch(url);
         const data = await resp.json()
 
         setTdata(data.response.body.items.item)
     }
     //데이터 가져오기 뒤에[]가 있으면 딱 한번만 실행
-    useEffect(()=>{
-        let url = `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?`
-        url = url + `serviceKey=${process.env.REACT_APP_APIKEY}`;
-        url = url + `&pageNo=1&numOfRows=1000&dataType=json&base_date=${dt}&base_time=0630&nx=${x}&ny=${y}`
-        
+    useEffect(() => {
+        let url;
+
+        if (gubun === '초단기예보') {
+            url = `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?`
+            url = url + `serviceKey=${process.env.REACT_APP_APIKEY}`;
+            url = url + `&pageNo=1&numOfRows=1000&dataType=json&base_date=${dt}&base_time=0630&nx=${x}&ny=${y}`
+        }
+        else {
+            url = `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?`
+            url = url + `serviceKey=${process.env.REACT_APP_APIKEY}`;
+            url = url + `&pageNo=1&numOfRows=1000&dataType=json&base_date=${dt}&base_time=0500&nx=${x}&ny=${y}`
+        }
         // console.log(url)
         //fetch 함수
         getData(url);
-    },[])
-
+    }, [])
     //tdata가 저장되었을때
-    useEffect(()=>{
+    useEffect(() => {
         console.log(selitem)
         console.log(tdata)
-        let tm = tdata.filter(item=>item["category"]===selitem)
-            .map(item=>
-            <tr key={item.fcstDate+item.fcstTime} 
-            className="bg-white border-b  hover:bg-gray-50 ">
-            <td scope="row" className="px-6 py-2 font-medium text-gray-900 whitespace-nowrap ">
-                {selitemName}
-            </td>
-            <td className="px-6 py-2">
-                {`${item.fcstDate.substr(0, 4)}-${item.fcstDate.substr(4, 2)}-${item.fcstDate.substr(6, 2)}` }
-            </td>
-            <td className="px-6 py-2">
-            {`${item.fcstTime.substr(0, 2)}:${item.fcstTime.substr(2,2)}`}
-            </td>
-            <td className="px-6 py-2">
-            {item.fcstValue}
-            </td>   
-        </tr>
+        let tm = tdata.filter(item => item["category"] === selitem)
+            .map(item =>
+                <tr key={item.fcstDate + item.fcstTime}
+                    className="bg-white border-b  hover:bg-gray-50 ">
+                    <td scope="row" className="px-6 py-2 font-medium text-gray-900 whitespace-nowrap ">
+                        {selitemName}
+                    </td>
+                    <td className="px-6 py-2">
+                        {`${item.fcstDate.substr(0, 4)}-${item.fcstDate.substr(4, 2)}-${item.fcstDate.substr(6, 2)}`}
+                    </td>
+                    <td className="px-6 py-2">
+                        {`${item.fcstTime.substr(0, 2)}:${item.fcstTime.substr(2, 2)}`}
+                    </td>
+                    <td className="px-6 py-2">
+                        {item.fcstValue}
+                    </td>
+                </tr>
             );
-       setTrtags(tm)
-    },[selitem]);
+        setTrtags(tm)
+    }, [selitem]);
 
 
     return (
@@ -89,7 +98,7 @@ export default function UltraSrtFcst() {
             <div className="w-11/12 justify-start
                      grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
                 <div className="text-lg font-bold p-4">
-                    {`${area}${gubun} (${dt.substring(0, 4)}-${dt.substring(4, 6)}-${dt.substring(6, 8)})일자`}
+                    {`${area} ${gubun} (${dt.substring(0, 4)}-${dt.substring(4, 6)}-${dt.substring(6, 8)})일자`}
                 </div>
                 <div>
                     <div className="p-4">

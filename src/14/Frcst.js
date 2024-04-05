@@ -22,8 +22,8 @@ export default function Frcst() {
     setDt(dRef.current.value.replaceAll('-', ''));
   }
 
-//초단기 예보
-  const handleUtra = ()=>{
+//초단기 예보,단기예보 하나로 묶음
+  const handleFrcst = (loc)=>{
     if (dt === '' || dt === undefined){
       alert('날짜를 선택하세요.');
       dRef.current.focus();
@@ -35,7 +35,12 @@ export default function Frcst() {
       return
     }
 
-    navigator(`/ultra/${dt}/${area}/${x}/${y}`)
+    // navigator(`/${loc}/${dt}/${area}/${x}/${y}`);
+    let gubun ='';
+    if (loc == 'ultra') gubun = '초단기예보';
+    else gubun = '단기예보'; 
+
+    navigator(`/frcstlist?dt=${dt}&area=${area}&x=${x}&y=${y}&gubun=${gubun}`);
   }
 
   const handleArea = ()=>{
@@ -68,11 +73,12 @@ useEffect(()=>{
     <div>
       <TailButton caption="초단기예보"
                   color = "blue"
-                  handleClick = {handleUtra}/>
+                  handleClick = {()=> {handleFrcst('ultra')} }/>
     </div>
     <div>
       <TailButton caption="단기예보"
-                  color = "blue"/>
+                  color = "blue"
+                  handleClick =  {()=> {handleFrcst('village')} }/>
     </div>
     </div>
   )
